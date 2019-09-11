@@ -83,6 +83,9 @@ class KukaGymEnv(gym.Env):
     p.loadURDF(os.path.join(self._urdfRoot, "table/table.urdf"), 0.5000000, 0.00000, -.820000,
                0.000000, 0.000000, 0.0, 1.0)
 
+    self.trayUid = p.loadURDF(os.path.join(self._urdfRoot, "tray/tray.urdf"), 0.640000,
+                              0.075000, -0.190000, 0.000000, 0.000000, 1.000000, 0.000000)
+
     xpos = 0.55 + 0.12 * random.random()
     ypos = 0 + 0.2 * random.random()
     ang = 3.14 * 0.5 + 3.1415925438 * random.random()
@@ -225,7 +228,7 @@ class KukaGymEnv(gym.Env):
       self._observation = self.getExtendedObservation()
       return True
     maxDist = 0.005
-    closestPoints = p.getClosestPoints(self._kuka.trayUid, self._kuka.kukaUid, maxDist)
+    closestPoints = p.getClosestPoints(self.blockUid, self._kuka.kukaUid, maxDist)
 
     if (len(closestPoints)):  #(actualEndEffectorPos[2] <= -0.43):
       self.terminated = 1

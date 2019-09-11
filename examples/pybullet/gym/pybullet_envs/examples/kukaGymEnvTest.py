@@ -4,13 +4,13 @@ currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentfram
 parentdir = os.path.dirname(os.path.dirname(currentdir))
 os.sys.path.insert(0, parentdir)
 
-from pybullet_envs.bullet.kukaGymEnv import KukaGymEnv
+from pybullet_envs.bullet.kukaGymWideEnv import KukaGymWideEnv
 import time
 
 
 def main():
 
-  environment = KukaGymEnv(renders=True, isDiscrete=False, maxSteps=10000000)
+  environment = KukaGymWideEnv(renders=True, isDiscrete=False, maxSteps=10000000)
 
   motorsIds = []
   #motorsIds.append(environment._p.addUserDebugParameter("posX",0.4,0.75,0.537))
