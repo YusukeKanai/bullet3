@@ -111,6 +111,13 @@ register(
 )
 
 register(
+    id='KukaBulletWideEnv-v0',
+    entry_point='pybullet_envs.bullet:KukaGymWideEnv',
+    max_episode_steps=1000,
+    reward_threshold=5.0,
+)
+
+register(
     id='KukaCamBulletEnv-v0',
     entry_point='pybullet_envs.bullet:KukaCamGymEnv',
     max_episode_steps=1000,
